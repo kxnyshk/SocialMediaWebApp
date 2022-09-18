@@ -9,6 +9,7 @@ import useStyles from './styles.js';
 import Input from './Input.js';
 import Icon from './Icon.js';
 import {useHistory} from 'react-router-dom';
+import {signIn, signUp} from '../../actions/auth';
 
 const initialState = {
     firstName: '',
@@ -32,6 +33,11 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    if(isSignUp){
+        dispatch(signUp(formData, history));
+    } else{
+        dispatch(signIn(formData, history));
+    }
   };
 
   const handleChange = (e) => {
