@@ -8,11 +8,14 @@ import jwt_decode from 'jwt-decode';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import Icon from './Icon.js';
+import {useHistory} from 'react-router-dom';
+
 const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setSignUp] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = false;
 
   const handleShowPassword = () => setShowPassword((prev) => !prev);
@@ -33,7 +36,8 @@ const Auth = () => {
       const result = jwt_decode(res?.credential);
     
       try {
-          dispatch({type: 'AUTH', data: {result}})
+          dispatch({type: 'AUTH', data: {result}});
+          history.push('/');
       } catch (error) {
           console.log(error);
       }
