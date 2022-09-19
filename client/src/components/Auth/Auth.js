@@ -9,7 +9,7 @@ import useStyles from './styles.js';
 import Input from './Input.js';
 import Icon from './Icon.js';
 import {useHistory} from 'react-router-dom';
-import {signIn, signUp} from '../../actions/auth';
+import {signin, signup} from '../../actions/auth';
 
 const initialState = {
     firstName: '',
@@ -34,9 +34,9 @@ const Auth = () => {
     e.preventDefault();
     console.log(formData);
     if(isSignUp){
-        dispatch(signUp(formData, history));
+        dispatch(signup(formData, history));
     } else{
-        dispatch(signIn(formData, history));
+        dispatch(signin(formData, history));
     }
   };
 
@@ -46,7 +46,7 @@ const Auth = () => {
 
   const switchMode = () => {
       setSignUp((prev) => !prev);
-      handleShowPassword(false);
+      setShowPassword(false);
   };
 
   // google auth funcs
