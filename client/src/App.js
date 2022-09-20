@@ -4,13 +4,12 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
-// import {GoogleOAuthProvider} from '@react-oauth/google';
+import {GoogleOAuthProvider} from '@react-oauth/google';
 import{ gapi } from 'gapi-script';
-
 const App = () =>{
   useEffect(() => { 
     function start(){ 
-      gapi.auth2.init({
+      gapi.client.init({
     clientId: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_API_TOKEN, 
     scope: ""
   })

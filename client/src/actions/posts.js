@@ -3,9 +3,9 @@ import * as api from '../api/index.js';
 
 //Action creators
 
-export const getPosts = () => async(dispatch) => {
+export const getPosts = (id) => async(dispatch) => {
     try {
-            const {data} = await api.fetchPosts();
+            const {data} = await api.fetchPosts(id);
             dispatch({type: FETCH_ALL, payload: data});
     }
     catch(error){

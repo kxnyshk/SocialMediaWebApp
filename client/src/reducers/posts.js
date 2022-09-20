@@ -1,5 +1,5 @@
 import {FETCH_ALL,CREATE, UPDATE, DELETE} from '../constants/actionTypes';
-const posts = (posts = [], action) => {
+export default (posts = [], action) => {
     switch(action.type){
         case DELETE :
         return posts.filter((post) => post._id !== action.payload);
@@ -13,5 +13,3 @@ const posts = (posts = [], action) => {
             return posts;
     }
 }
-
-export default posts;
