@@ -27,7 +27,7 @@ const Post = ({post, setCurrentId}) =>{
       };
 
     return (
-        <Card className={classes.card}>
+        <Card className={classes.card} raised elevation={6}>
             <CardMedia className = {classes.media} image = {post.selectedFile} title = {post.title}></CardMedia>
             <div className = {classes.overlay}>
                 <Typography variant="h6">{post.name}</Typography>
@@ -42,7 +42,7 @@ const Post = ({post, setCurrentId}) =>{
 )}
            
             <div className={classes.details}>
-                <Typography variant="body2" color="textSecondary">{post.tags.map((tag) => `#${tag}`)}</Typography>
+                <Typography variant="body2" color="textSecondary">{post.tags.map((tag) => `#${tag} `)}</Typography>
             </div>
             <CardContent>
             <Typography className = {classes.title} variant="h5" gutterBottom>{post.title}</Typography>
