@@ -13,10 +13,12 @@ import moment from 'moment';
 // added getPost
 import { getPost, deletePost,likePost } from "../../../actions/posts";
 import useStyles from './styles';
+import {useHistory} from 'react-router-dom';
 
 const Post = ({post, setCurrentId}) =>{
     const dispatch = useDispatch();
     const classes = useStyles();
+    const history = useHistory();
     const user = JSON.parse(localStorage.getItem('profile'));
     
     const Likes = () => {
@@ -32,8 +34,20 @@ const Post = ({post, setCurrentId}) =>{
         return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
       };
 
+    const openPost = () => {
+      // dispatch(getPost(post._id, history));
+      history.push(`/posts/${post._id}`);
+    };
+
     return (
         <Card className={classes.card} raised elevation={6}>
+            
+            <ButtonBase
+              component="span"
+              name="test"
+              className={classes.cardAction}
+              onClick={openPost} >
+            
             <CardMedia className = {classes.media} image = {post.selectedFile} title = {post.title}></CardMedia>
               <div className = {classes.overlay}>
                 <Typography variant="h6">{post.name}</Typography>
@@ -62,7 +76,8 @@ const Post = ({post, setCurrentId}) =>{
               <Typography className = {classes.title} variant="h5" gutterBottom component='h2'>{post.title}</Typography>
               <Typography variant="body2" color="textSecondary" component="p" >{post.message}</Typography>
             </CardContent>
-            
+          </ButtonBase>
+
           <CardActions className={classes.cardActions}>
             <Button size = "small" color = "primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
                <Likes/>
