@@ -36,6 +36,9 @@ export default makeStyles({
   grid: {
     display: 'flex',
   },
+  name:{
+    fontSize: '1rem',
+  },
   details: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -44,6 +47,7 @@ export default makeStyles({
   },
   title: {
     padding: '0 0px',
+    fontFamily: 'Tahoma, sans-serif',
   },
   cardActions: {
     padding: '0 16px 8px 16px',
