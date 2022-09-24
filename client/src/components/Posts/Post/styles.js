@@ -40,6 +40,7 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     margin: '20px',
+    color: 'dodgerblue',
   },
   title: {
     padding: '0 0px',
