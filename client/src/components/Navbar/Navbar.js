@@ -8,6 +8,8 @@ import {Link, useHistory, useLocation } from 'react-router-dom';
 import memoriesLogo from '../../images/memoriesLogo.png';
 import memoriesText from '../../images/memoriesText.png';
 
+import BannerLogo from '../../images/travello_text.png';
+
 const Navbar = () => {
 
     const classes = useStyles();
@@ -41,8 +43,8 @@ const Navbar = () => {
   return (
     <AppBar className = {classes.appBar} position='static' color = 'inherit'>
         <Link to="/" className={classes.brandContainer}>
-            <img component={Link} to="/" src={memoriesText} alt="icon" height="45px" />
-            <img className={classes.image} src={memoriesLogo} alt="icon" height="40px" />
+            <img component={Link} to="/" src={BannerLogo} alt="icon" height="75px" />
+            <img className={classes.image} src={memoriesLogo} alt="icon" height="30px" />
         </Link>
         <Toolbar className={classes.toolbar}>
         {user ? (
